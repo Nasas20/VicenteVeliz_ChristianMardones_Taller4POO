@@ -1,5 +1,7 @@
 package Dominio;
 
+import Visitor.VisitorPoder;
+
 public class Supporter extends Carta {
 	private int efectosPorTurno;
 
@@ -10,6 +12,15 @@ public class Supporter extends Carta {
 
 	public int getEfectosPorTurno() {
 		return efectosPorTurno;
+	}
+	
+	public double aceptar(VisitorPoder v) {
+		return v.visitar(this);
+	}
+
+	@Override
+	public void modificar(String[] nuevo) {
+		this.efectosPorTurno = Integer.valueOf(nuevo[0]);
 	}
 	
 	

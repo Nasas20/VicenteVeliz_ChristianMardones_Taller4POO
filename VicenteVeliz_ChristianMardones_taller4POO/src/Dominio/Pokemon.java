@@ -1,5 +1,7 @@
 package Dominio;
 
+import Visitor.VisitorPoder;
+
 public class Pokemon extends Carta {
 	private int daño;
 	private int cantEnergias;
@@ -16,6 +18,17 @@ public class Pokemon extends Carta {
 
 	public int getCantEnergias() {
 		return cantEnergias;
+	}
+	
+	public double aceptar(VisitorPoder v) {
+		return v.visitar(this);
+	}
+
+	@Override
+	public void modificar(String[] nuevo) {
+		this.daño = Integer.valueOf(nuevo[0]);
+		this.cantEnergias = Integer.valueOf(nuevo[1]);
+
 	}
 	
 	
