@@ -2,11 +2,14 @@ package Logica;
 
 import java.io.FileNotFoundException;
 
+import GUI.Ventana;
+
 public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		ISistema sistema = Sistema.getInstancia();
+		Sistema sistema = Sistema.getInstancia();
 		sistema.leerArchivo();
+		new Ventana().iniciar();
 	}
 
 }
